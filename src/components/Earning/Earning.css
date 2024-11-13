@@ -1,0 +1,60 @@
+.earning-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 20rem;
+  width: 30rem; /* Default width for larger screens */
+  padding: 0.8rem 1.5rem 0.8rem 2rem;
+  border-radius: 1rem;
+  background-color: #212121;
+  color: #fff;
+}
+
+.top .info {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.top .info h1 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.top .info h5 {
+  font-size: 1rem;
+  color: #666;
+}
+
+.growth {
+  background-color: #e0f7fa;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  margin-top: 0.5rem;
+  display: inline-block;
+  color: #00796b;
+}
+
+.chart-container {
+  height: 200px;
+  margin-top: 1rem;
+}
+
+.recharts-default-tooltip {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+/* Media Query for Mobile and Tablets (for auto width) */
+@media screen and (max-width: 1080px) {
+  .earning-section {
+    width: 20.5rem; 
+  }
+}
+
+/* Media Query for Laptop (min-width: 1081px) */
+@media screen and (min-width: 1081px) {
+  .earning-section {
+    width: 30rem; /* For laptops and above, a fixed width */
+  }
+}

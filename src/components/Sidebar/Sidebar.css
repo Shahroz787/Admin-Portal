@@ -1,0 +1,190 @@
+/* Sidebar Styles */
+.sidebar-container {
+  position: fixed;
+  left: 0;
+  background-color: #212121;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  gap: 2rem;
+  
+}
+
+.sidebar-container.show {
+  transform: translateX(0);
+  
+}
+
+.sidebar-container .top {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.sidebar-container .toggle {
+  display: none;
+}
+
+.sidebar-container .brand {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sidebar-container .brand svg {
+  color: #00ddff;
+  font-size: 1.8rem;
+}
+
+.sidebar-container .brand span {
+  font-size: 1.5rem;
+  color: #00ddff;
+  font-family: "Permanent Marker", cursive;
+  margin-left: -1rem;
+}
+
+.sidebar-container .links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar-container .links.show {
+  opacity: 1;
+}
+
+.sidebar-container .links ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-container .links ul li {
+  padding: 0.7rem 1rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.sidebar-container .links ul li:hover {
+  background-color: #00ddff;
+}
+
+.sidebar-container .links ul li a {
+  text-decoration: none;
+  display: flex;
+  gap: 1rem;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+}
+
+.sidebar-container .links ul li.active {
+  background-color: #00ddff;
+}
+
+.sidebar-container .logout {
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.6rem;
+}
+
+.sidebar-container .logout:hover {
+  background-color: #da0037;
+}
+
+.sidebar-container .logout a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 1023px) {
+  .sidebar-container {
+    position: initial;
+    width: 100%;
+    height: max-content;
+    padding: 1rem;
+  }
+  .sidebar-container .top {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+  .sidebar-container .toggle {
+    display: block;
+    color: white;
+    z-index: 99;
+  }
+  .sidebar-container .toggle svg {
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+  .sidebar-container .top > .links,
+  .sidebar-container .logout {
+    display: none;
+  }
+}
+
+
+.responsive-nav {
+  position: fixed;
+  right: -70vw;
+  top: 4.9rem;
+  z-index: 10;
+  background-color: black;
+  height: 55vh;
+  width: 60%;
+  opacity: 1;
+  transition: 0.4s ease-in-out;
+  display: flex;
+  padding: 1rem;
+}
+
+.responsive-nav.show {
+  right: 0;
+}
+
+.responsive-nav .responsive-links {
+  display: flex;
+  justify-content: center;
+}
+
+.responsive-nav .responsive-links ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.responsive-nav .responsive-links ul li {
+  padding: 0.7rem 1rem;
+  border-radius: 0.6rem;
+}
+
+.responsive-nav .responsive-links ul li.active {
+  background-color: #00ddff; /* Active link color for mobile view */
+}
+
+.responsive-nav .responsive-links ul li:hover {
+  background-color: #00ddff;
+}
+
+.responsive-nav .responsive-links ul li a {
+  text-decoration: none;
+  display: flex;
+  gap: 1rem;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+}

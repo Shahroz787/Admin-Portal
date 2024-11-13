@@ -1,0 +1,41 @@
+  .section-container {
+      margin-left: 2vw;
+      padding: 2rem;
+      height: 100%;
+    }
+    
+    .grid {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .row__one {
+      display: flex;
+      height: 30%;
+      gap: 1rem;
+    }
+    
+    .row__two {
+      display: flex;
+      height: 60%;
+      gap: 1rem;
+    }
+    
+    @media screen and (min-width: 280px) and (max-width: 1080px) {
+      .section-container {
+        margin-left: 0;
+        padding: 1rem;
+      }
+      
+      .grid {
+        .row__one,
+        .row__two {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+    
