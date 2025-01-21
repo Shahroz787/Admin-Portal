@@ -15,6 +15,7 @@ const Page = () => {
     const [password, setPassword] = useState("");
     const [image, setImage] = useState(null); // Added state for profile image
     const [imagePreview, setImagePreview] = useState(""); // For storing the preview URL
+    const [loading, setLoading] = useState(false); // Added loading state
 
     useEffect(() => {
         // Clean up image preview URL on component unmount or image change
@@ -27,6 +28,7 @@ const Page = () => {
 
     const submitHandler = async (event) => {
         event.preventDefault();
+        setLoading(true); // Set loading to true when submission starts
 
         try {
             if (currentState === "signup") {
@@ -48,6 +50,8 @@ const Page = () => {
         } catch (error) {
             console.error("Error during authentication:", error);
             // Handle any error that might occur (e.g., show an error message)
+        } finally {
+            setLoading(false); // Set loading to false once submission is done
         }
     };
 
@@ -79,10 +83,9 @@ const Page = () => {
                             <Image
                                 src={imagePreview || "/images/avatar_icon.png"} // Use preview URL or default image
                                 alt="Profile Avatar"
-                                width= {80}
-                                height= {80}
+                                width={80}
+                                height={80}
                                 style={{
-                                    
                                     borderRadius: "50%",
                                     objectFit: "cover", // Maintains aspect ratio
                                     border: "2px solid #ddd", // Optional, for styling
@@ -120,9 +123,11 @@ const Page = () => {
                     value={password}
                     required
                 />
-                <button type="submit">
-                    {currentState === "signup" ? "Create Account" : "Login Now"}
+                <button type="submit" disabled={loading}> {/* Disable button when loading */}
+                    {loading ? <div className="loading-spinner">Loading...</div> : (currentState === "signup" ? "Create Account" : "Login Now")}
                 </button>
+
+               
 
                 <div className="login-term">
                     <input type="checkbox" />
