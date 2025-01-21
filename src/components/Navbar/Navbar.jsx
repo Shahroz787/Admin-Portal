@@ -4,7 +4,7 @@ import "./Navbar.css";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../../app/config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import Image from 'next/image';
+import Image from "next/image";
 
 const Navbar = () => {
   const [profileImage, setProfileImage] = useState(null);
@@ -43,18 +43,19 @@ const Navbar = () => {
           <BiSearch className="search-icon" />
           <input type="text" placeholder="Search" />
         </div>
+
         {/* Profile Image next to Search Bar */}
         {profileImage && (
           <div>
-            <Image 
+            <Image
               src={profileImage}
               alt="Profile"
               className="profile-img"
+              width={75} // Correct numeric value for width
+              height={75} // Correct numeric value for height
               style={{
-                width: "35px",
-                height: "35px",
-                borderRadius: "50%",
-                marginLeft: "10px",
+                borderRadius: "50%", // Round the profile image
+                marginLeft: "10px", // Space between the search bar and profile image
               }}
             />
           </div>
