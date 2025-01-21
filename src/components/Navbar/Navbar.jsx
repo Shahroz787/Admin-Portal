@@ -4,6 +4,7 @@ import "./Navbar.css";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../../app/config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import Image from 'next/image';
 
 const Navbar = () => {
   const [profileImage, setProfileImage] = useState(null);
@@ -45,7 +46,7 @@ const Navbar = () => {
         {/* Profile Image next to Search Bar */}
         {profileImage && (
           <div>
-            <img
+            <Image 
               src={profileImage}
               alt="Profile"
               className="profile-img"
