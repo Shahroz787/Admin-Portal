@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import "./page.css";
 
-const page = () => {
+const Page = () => {
   const faqData = [
-    { question: "How can I track my order?", answer: "You can track your order by logging into your account and navigating to the 'My Orders' section." },
+    { question: "How can I track my order?", answer: "You can track your order by logging into your account and navigating to the &apos;My Orders&apos; section." },
     { question: "What is the return policy?", answer: "Our return policy allows returns within 30 days of delivery for a full refund." },
-    { question: "How do I contact customer support?", answer: "You can contact our customer support team via the 'Contact Us' page or by calling our hotline." },
+    { question: "How do I contact customer support?", answer: "You can contact our customer support team via the &apos;Contact Us&apos; page or by calling our hotline." },
     { question: "Can I change my order after placing it?", answer: "Order changes are allowed within the first 24 hours. Please contact support for assistance." },
   ];
 
@@ -37,4 +37,4 @@ const FAQItem = ({ question, answer }) => {
   );
 };
 
-export default page;
+export default Page;

@@ -11,6 +11,7 @@ const Navbar = () => {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
+    // Function to fetch user data
     const fetchUserData = async () => {
       onAuthStateChanged(auth, async (user) => {
         if (user) {
@@ -27,6 +28,11 @@ const Navbar = () => {
     };
 
     fetchUserData();
+
+    // Clean up the listener when component unmounts
+    return () => {
+      onAuthStateChanged(auth, () => {}); // Unsubscribe from the listener
+    };
   }, []);
 
   return (

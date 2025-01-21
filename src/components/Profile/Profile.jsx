@@ -13,6 +13,7 @@ const Profile = () => {
       try {
         const response = await fetch("https://fakestoreapi.com/products");
         const data = await response.json();
+        console.log("Fetched products:", data); // Log data for debugging
         setProducts(data); // Store fetched data in state
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -41,24 +42,29 @@ const Profile = () => {
         <button className="button-enter">Enter</button>
       </div>
       <div className="product-list">
-        {filteredProducts.map((product) => (
-          <div key={product.id} className="product-item">
-            <Image
-              src={product.image}
-              alt={product.title}
-              className="product-image"
-              width={200}
-              height={200}
-            />
-            <div className="product-info">
-              <h5>{product.title}</h5>
-              <div className="category">
-                <p className="product-category">{product.category}</p>
-                <p className="product-price">${product.price}</p>
+        {filteredProducts.length === 0 ? (
+          <p>No products found</p> // Display message when no products match
+        ) : (
+          filteredProducts.map((product) => (
+            <div key={product.id} className="product-item">
+              <Image
+                src={product.image}
+                alt={product.title}
+                className="product-image"
+                width={200}
+                height={200}
+                onError={() => console.log("Image failed to load")} // Handle image errors
+              />
+              <div className="product-info">
+                <h5>{product.title}</h5>
+                <div className="category">
+                  <p className="product-category">{product.category}</p>
+                  <p className="product-price">${product.price}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );

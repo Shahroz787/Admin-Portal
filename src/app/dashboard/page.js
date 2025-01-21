@@ -10,7 +10,7 @@ import Transfer from "../../components/Transfer/Transfer";
 import Profile from "../../components/Profile/Profile";
 import "./page.css";
 
-const page = () => {
+const Page = () => {
   return (
     <section className="section-container">
       <Navbar />
@@ -30,8 +30,8 @@ const page = () => {
 };
 
 // Wrap the DashboardPage in AppLayout
-page.getLayout = function getLayout(page) {
+Page.getLayout = function getLayout(page) {
   return <AppLayout>{page}</AppLayout>;
 };
 
-export default page;
+export default Page;

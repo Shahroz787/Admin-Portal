@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import "./page.css";
 
-const page = () => {
+const Page = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
@@ -84,4 +84,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

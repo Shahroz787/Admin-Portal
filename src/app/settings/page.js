@@ -2,7 +2,7 @@
 import React from "react";
 import "./page.css";
 
-const page = () => {
+const Page = () => {
   const settingsOptions = [
     { title: "Account Settings", description: "Manage your personal account details", icon: "👤" },
     { title: "Privacy", description: "Adjust your privacy preferences", icon: "🔒" },
@@ -28,4 +28,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

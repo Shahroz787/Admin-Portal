@@ -51,7 +51,7 @@ const OrderPage = () => {
             name="customerName"
             value={orderDetails.customerName}
             onChange={handleChange}
-            placeholder="Enter customer's name"
+            placeholder="Enter customer&apos;s name"
             className="input-field"
           />
         </div>

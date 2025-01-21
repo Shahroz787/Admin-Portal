@@ -2,7 +2,7 @@
 import React from "react";
 import "./page.css";
 
-const page = () => {
+const Page = () => {
   const topics = [
     { title: "Getting Started", description: "Learn the basics of your dashboard", icon: "📘" },
     { title: "Managing Products", description: "Add, edit, and organize your products", icon: "📦" },
@@ -28,4 +28,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
