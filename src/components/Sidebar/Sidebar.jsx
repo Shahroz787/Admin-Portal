@@ -98,6 +98,13 @@ const Sidebar = () => {
                 </Link>
               </li>
             ))}
+            {/* Logout Option for Mobile */}
+            <li className="logout-mobile">
+              <a onClick={handleLogout} style={{ cursor: "pointer" }}>
+                <FiLogOut />
+                <span>Logout</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
