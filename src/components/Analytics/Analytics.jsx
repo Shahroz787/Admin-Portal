@@ -21,7 +21,7 @@ const Analytics = () => {
           <h5>Customer Return</h5>
           <h2>876</h2>
         </div>
-        <div className="logo">
+        <div className="logoo">
           <BiGroup />
         </div>
       </div>
