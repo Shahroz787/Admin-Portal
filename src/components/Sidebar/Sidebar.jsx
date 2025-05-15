@@ -52,7 +52,7 @@ const Sidebar = () => {
           <div className={`links ${navbarState ? "show" : ""}`}>
             <ul>
               {[
-                ["Dashboard", MdSpaceDashboard, "/dashboard"],
+                ["Dashboard", MdSpaceDashboard, "/"],
                 ["Order", MdDeliveryDining, "/order"],
                 ["Payment Details", FaAddressCard, "/payment"],
                 ["Learning Center", GiTwirlCenter, "/learning-center"],
