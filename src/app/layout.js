@@ -1,5 +1,7 @@
 import "./globals.css";
 import localFont from "next/font/local";
+import { AuthProvider } from "@/context/AuthContext";
+import AuthenticatedLayout from "@/components/AuthenticatedLayout";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -13,17 +15,17 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Business Growth - Login",
-  description: "Login to access the business dashboard",
+  title: "Business Growth - Dashboard",
+  description: "Access the business dashboard",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}>
-        <div className="min-h-screen flex items-center justify-center bg-black text-white">
-          {children}
-        </div>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}>
+        <AuthProvider>
+          <AuthenticatedLayout>{children}</AuthenticatedLayout>
+        </AuthProvider>
       </body>
     </html>
   );

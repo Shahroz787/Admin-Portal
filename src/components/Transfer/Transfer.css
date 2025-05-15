@@ -93,7 +93,7 @@
 /* Responsive styles */
 @media screen and (min-width: 280px) and (max-width: 1080px) {
   .transfer-section{
-    width: 20.5rem; 
+    width: auto; 
   }
   .transactions {
     font-size: 0.8rem;

@@ -15,7 +15,7 @@ const transactionData = [
 
   {
     image: "/images/shahroz2.png",  // Direct path
-    name: "From Arman",
+    name: "From Hassan",
     time: "Today 8:36",
     amount: "+$189",
   },

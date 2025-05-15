@@ -1,20 +1,17 @@
 /* Sidebar Styles */
 .sidebar-container {
   position: fixed;
-  left: 0;
   background-color: #212121;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   gap: 2rem;
-  
 }
 
 .sidebar-container.show {
   transform: translateX(0);
-  
 }
 
 .sidebar-container .top {
@@ -29,7 +26,6 @@
 }
 
 .sidebar-container .brand {
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,6 +49,10 @@
   justify-content: center;
   margin-bottom: 3rem;
   transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
 }
 
 .sidebar-container .links.show {
@@ -107,13 +107,20 @@
   font-family: "Montserrat", sans-serif;
 }
 
+@media screen and (max-width: 1115px) {
+  .sidebar-container {
+    padding: 2rem 0;
+  }
+}
+
 /* Responsive Styling */
 @media screen and (max-width: 1023px) {
   .sidebar-container {
-    position: initial;
+    position: fixed;
     width: 100%;
     height: max-content;
     padding: 1rem;
+    margin-bottom: 10rem;
   }
   .sidebar-container .top {
     flex-direction: row;
@@ -136,14 +143,13 @@
   }
 }
 
-
 .responsive-nav {
   position: fixed;
   right: -70vw;
   top: 4.9rem;
   z-index: 10;
   background-color: black;
-  height: 55vh;
+  height: 63vh;
   width: 60%;
   opacity: 1;
   transition: 0.4s ease-in-out;
@@ -187,4 +193,18 @@
   color: #fff;
   font-family: "Montserrat", sans-serif;
   font-size: 0.8rem;
+}
+
+
+@media screen and (min-width: 500) and (max-width: 1030px) {
+
+  .sidebar-container .brand .brand-heading {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .sidebar-container .brand .brand-heading {
+    font-size: 1rem;
+  }
 }

@@ -4,23 +4,18 @@ import { doc, getFirestore, setDoc, updateDoc, serverTimestamp, query, getDoc, c
 import { toast } from "react-toastify";
 
 const firebaseConfig = {
-    // apiKey: "AIzaSyDV2rcK2owoUm6eFyw2KA4_Zb3r2LDNW10",
-    // authDomain: "dashboard-bf708.firebaseapp.com",
-    // projectId: "dashboard-bf708",
-    // storageBucket: "dashboard-bf708.firebasestorage.app",
-    // messagingSenderId: "872431833205",
-    // appId: "1:872431833205:web:f1327e5793a27b4663283c",
-    // measurementId: "G-YJFM1B6Z8D"
-    apiKey: "AIzaSyBUWD3xPdUPJ-Bm-DLNmxgLHAL6Pq-TIxs",
-    authDomain: "chatsapp-d6c80.firebaseapp.com",
-    projectId: "chatsapp-d6c80",
-    storageBucket: "chatsapp-d6c80.appspot.com",
-    messagingSenderId: "913539421345",
-    appId: "1:913539421345:web:947120288b8bef0be84ce0"
+
+    apiKey: "AIzaSyAxscCBmljlsMgbIFTylutIJol9wYujm2g",
+    authDomain: "adminpanel-f1ec9.firebaseapp.com",
+    projectId: "adminpanel-f1ec9",
+    storageBucket: "adminpanel-f1ec9.firebasestorage.app",
+    messagingSenderId: "711891082634",
+    appId: "1:711891082634:web:5d33b7f7837c5ec428bc73",
+    measurementId: "G-9GNMKZEMV5"
 };
 
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -31,13 +26,13 @@ const signup = async (username, email, password, avatarURL) => {
         toast.success("Signup successful");
         const user = res.user;
 
-        // Save user data to Firestore, including avatar URL
+      
         await setDoc(doc(db, "users", user.uid), {
             id: user.uid,
             username: username.toLowerCase(),
             email,
             name: "",
-            avatar: avatarURL || "", // Save avatar URL here
+            avatar: avatarURL || "",
         });
 
     } catch (error) {
@@ -50,36 +45,31 @@ const signup = async (username, email, password, avatarURL) => {
 };
 
 
-const login = async (email, password, router) => {
+const login = async (email, password) => {
     try {
         const res = await signInWithEmailAndPassword(auth, email, password);
         const user = res.user;
 
-        // Update last login time in Firestore
-        const userRef = doc(db, "users", user.uid);
-        await updateDoc(userRef, {
-            lastLogin: serverTimestamp()
-        });
 
-        // Successful login
         toast.success("Login successful");
 
-          // Use `push` to navigate to dashboard page after successful login
-          router.push("/dashboard");
-
+        return user; // Return user object instead of handling redirect
     } catch (error) {
         const errorMessage = error?.code
             ? error.code.split('/')[1].split('-').join(' ')
             : "Login failed. Please try again.";
         toast.error(errorMessage);
+        throw error; // Throw error to handle it in `page.js`
     }
 };
 
 
 
-const logout = async () => {
+const logout = async (setIsAuthenticated) => {
     try {
         await signOut(auth);
+        localStorage.removeItem("authToken"); // Clear auth token from localStorage
+        setIsAuthenticated(false); // Update authentication state
         toast.success("Logout successful");
     } catch (error) {
         console.log("Logout Error: ", error);

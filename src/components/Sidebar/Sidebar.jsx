@@ -11,18 +11,23 @@ import { IoSettings } from "react-icons/io5";
 import { MdDeliveryDining, MdSpaceDashboard } from "react-icons/md";
 import { VscChromeClose } from "react-icons/vsc";
 import Link from "next/link";
-import { logout } from "@/app/config/firebase";
+import { logout } from "@/config/firebase";
 import { useRouter } from "next/navigation"; // Import useRouter
+import { useAuth } from "@/context/AuthContext";
 
 const Sidebar = () => {
   const [currentLinks, setCurrentLinks] = useState(null); // Null for no active link initially
   const [navbarState, setNavbarState] = useState(false);
   const router = useRouter();
+  const { setIsAuthenticated } = useAuth();
+
+      
+  console.log("currentLinks",currentLinks)
 
   const handleLogout = async () => {
     try {
-      await logout();
-      router.push("/");
+      await logout(setIsAuthenticated); // Pass setIsAuthenticated to logout
+      router.replace("/");
     } catch (error) {
       console.error("Logout failed:", error);
     }
@@ -32,12 +37,13 @@ const Sidebar = () => {
 
   return (
     <>
+      {/* Sidebar Container */}
       <div className={`sidebar-container ${navbarState ? "show" : ""}`}>
         <div className="top">
-          <div className="flex justify-center items-center z-10 bg-slate-900 w-full">
+          <div className="flex justify-between items-center z-10 bg-slate-900 w-full">
             <div className="brand">
               <FcShop />
-              <span>ChawkBazar Shop</span>
+              <span className="brand-heading">ChawkBazar Shop</span>
             </div>
             <div className="toggle" onClick={toggleSidebar}>
               {navbarState ? <VscChromeClose /> : <GiHamburgerMenu />}
@@ -76,6 +82,7 @@ const Sidebar = () => {
         </div>
       </div>
 
+      {/* Responsive Navigation */}
       <div className={`responsive-nav ${navbarState ? "show" : ""}`}>
         <div className="responsive-links">
           <ul>
@@ -98,6 +105,13 @@ const Sidebar = () => {
                 </Link>
               </li>
             ))}
+            {/* Logout Option for Mobile */}
+            <li className="logout-mobile">
+              <a onClick={handleLogout} style={{ cursor: "pointer" }}>
+                <FiLogOut />
+                <span>Logout</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -106,4 +120,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-

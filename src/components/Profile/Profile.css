@@ -137,7 +137,7 @@ h5 {
 /* Mobile-specific styles */
 @media screen and (max-width: 1080px) {
   .profile-container {
-    width: 90%; /* Reduce width for smaller screens */
+    width: auto;
     max-width: 100%; /* Allow it to stretch to full width */
   }
 

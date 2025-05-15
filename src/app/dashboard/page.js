@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import AppLayout from "../app-layout"; 
 import Navbar from "../../components/Navbar/Navbar";
 import Analytics from "../../components/Analytics/Analytics";
 import FAQ from "../../components/FAQ/FAQ";
@@ -27,11 +26,6 @@ const Page = () => {
       </div>
     </section>
   );
-};
-
-// Wrap the DashboardPage in AppLayout
-Page.getLayout = function getLayout(page) {
-  return <AppLayout>{page}</AppLayout>;
 };
 
 export default Page;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import "./Navbar.css";
 import { doc, getDoc } from "firebase/firestore";
-import { auth, db } from "../../app/config/firebase";
+import { auth, db } from "../../config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import Image from "next/image";
 
@@ -44,25 +44,20 @@ const Navbar = () => {
         </h1>
       </div>
 
-      <div className="flex justify-center items-center">
-        <div className="navbar-search">
+      <div className="navbar-actions">
+        <div className="navbar-search flex justify-around ">
           <BiSearch className="search-icon" />
           <input type="text" placeholder="Search" />
         </div>
 
-        {/* Profile Image next to Search Bar */}
         {profileImage && (
-          <div>
+          <div className="profile-image">
             <Image
               src={profileImage}
               alt="Profile"
               className="profile-img"
-              width={75} // Correct numeric value for width
-              height={75} // Correct numeric value for height
-              style={{
-                borderRadius: "50%", // Round the profile image
-                marginLeft: "10px", // Space between the search bar and profile image
-              }}
+              width={75}
+              height={75}
             />
           </div>
         )}

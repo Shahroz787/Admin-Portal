@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 20rem;
-  width: 30rem; /* Default width for larger screens */
+  width: 30rem;
   padding: 0.8rem 1.5rem 0.8rem 2rem;
   border-radius: 1rem;
   background-color: #212121;
@@ -46,15 +46,9 @@
 }
 
 /* Media Query for Mobile and Tablets (for auto width) */
-@media screen and (max-width: 1080px) {
+@media screen and (min-width: 280px) and (max-width: 1080px) {
   .earning-section {
-    width: 20.5rem; 
-  }
-}
-
-/* Media Query for Laptop (min-width: 1081px) */
-@media screen and (min-width: 1081px) {
-  .earning-section {
-    width: 30rem; /* For laptops and above, a fixed width */
+    width: auto;
+    max-width: 100%;
   }
 }
