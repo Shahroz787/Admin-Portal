@@ -20,3 +20,38 @@ body {
   font-family: "Permanent Marker", cursive;
 }
 
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #0f0f0f;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.glow-ring {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  border-top: 5px solid #00ffcc;
+  animation: spin 1.2s ease-in-out infinite;
+  box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc80;
+  margin-bottom: 20px;
+  background: conic-gradient(#00ffcc, #00bfff, #00ffcc);
+  filter: drop-shadow(0 0 15px #00ffcc);
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-screen p {
+  font-size: 18px;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc80;
+}
+

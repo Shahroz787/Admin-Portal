@@ -7,12 +7,14 @@ export default function AuthenticatedLayout({ children }) {
   const { isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) {
-    // Jab tak auth check ho raha hai, tab kuch bhi na dikhaye (ya loader dikhaye)
-    return <div className="loading-screen">Loading...</div>;
+    return <div className="loading-screen">
+      <div className="glow-ring"></div>
+      <p>Loading...</p>
+    </div>
   }
 
   if (!isAuthenticated) {
-    return <>{children}</>; // Login / Signup
+    return <>{children}</>;
   }
 
   return (

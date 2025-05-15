@@ -12,14 +12,18 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = typeof window !== "undefined" ? localStorage.getItem("authToken") : null;
+    console.log("loading started");
     if (token) {
+      
       setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false);
-      router.replace("/"); // Redirect to login page
+      router.replace("/login"); // Redirect to login page
     }
     setIsLoading(false); // ← This is the key issue
-  }, []);
+    console.log("loading khatam");
+    
+  }, [router]);
   
 
   console.log("Rendering children in AuthProvider...");

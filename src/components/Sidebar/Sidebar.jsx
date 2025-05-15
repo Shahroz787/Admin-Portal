@@ -27,7 +27,7 @@ const Sidebar = () => {
   const handleLogout = async () => {
     try {
       await logout(setIsAuthenticated); // Pass setIsAuthenticated to logout
-      router.replace("/");
+      router.replace("/login");
     } catch (error) {
       console.error("Logout failed:", error);
     }

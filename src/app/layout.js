@@ -22,6 +22,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+       {/* <head>
+        <link rel="icon" href="/title-icon.png" type="image/png" />
+      </head> */}
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}>
         <AuthProvider>
           <AuthenticatedLayout>{children}</AuthenticatedLayout>
