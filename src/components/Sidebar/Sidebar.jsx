@@ -87,7 +87,7 @@ const Sidebar = () => {
         <div className="responsive-links">
           <ul>
             {[
-              ["Dashboard", MdSpaceDashboard, "/dashboard"],
+              ["Dashboard", MdSpaceDashboard, "/"],
               ["Order", MdDeliveryDining, "/order"],
               ["Payment Details", FaAddressCard, "/payment"],
               ["Learning Center", GiTwirlCenter, "/learning-center"],
